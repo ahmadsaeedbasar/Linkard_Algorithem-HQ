@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Algorithm HQ Design System - Dark Mafia-Inspired Theme */
+
+@layer base {
+  :root {
+    /* Core Brand Colors - HSL Values */
+    --charcoal: 0 0% 10%; /* #1A1A1A */
+    --charcoal-light: 0 0% 15%; /* Lighter charcoal */
+    --charcoal-dark: 0 0% 6%; /* Darker charcoal */
+    
+    --teal: 210 35% 52%; /* #5C84A9 */
+    --teal-light: 210 35% 65%;
+    --teal-dark: 210 35% 40%;
+    
+    --neon: 199 100% 91%; /* #D9F1FF */
+    --neon-glow: 199 100% 85%;
+    --neon-bright: 199 100% 95%;
+    
+    --warning: 0 100% 64%; /* #FF4C4C */
+    --warning-light: 0 100% 75%;
+    --warning-dark: 0 100% 55%;
+
+    /* Semantic Design Tokens */
+    --background: var(--charcoal);
+    --background-secondary: var(--charcoal-light);
+    --background-accent: var(--charcoal-dark);
+    
+    --foreground: var(--neon);
+    --foreground-muted: 199 50% 75%;
+    --foreground-secondary: var(--teal);
+    
+    --primary: var(--neon);
+    --primary-foreground: var(--charcoal);
+    --primary-hover: var(--neon-glow);
+    
+    --secondary: var(--teal);
+    --secondary-foreground: var(--neon);
+    --secondary-hover: var(--teal-light);
+    
+    --accent: var(--teal);
+    --accent-foreground: var(--neon);
+    --accent-hover: var(--teal-dark);
+    
+    --destructive: var(--warning);
+    --destructive-foreground: var(--neon);
+    
+    --card: var(--charcoal-light);
+    --card-foreground: var(--neon);
+    --card-border: var(--teal-dark);
+    
+    --border: 210 20% 25%;
+    --border-accent: var(--teal);
+    --input: var(--charcoal-light);
+    --input-border: var(--teal-dark);
+    --ring: var(--neon);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--charcoal)) 0%, hsl(var(--charcoal-light)) 50%, hsl(var(--charcoal-dark)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--charcoal-dark)) 0%, hsl(var(--charcoal)) 35%, hsl(var(--teal-dark)) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(var(--teal)) 0%, hsl(var(--neon-glow)) 100%);
+    --gradient-warning: linear-gradient(45deg, hsl(var(--warning)) 0%, hsl(var(--warning-light)) 100%);
+    
+    /* Shadows & Effects */
+    --shadow-glow: 0 0 30px hsl(var(--neon) / 0.2);
+    --shadow-accent: 0 0 40px hsl(var(--teal) / 0.3);
+    --shadow-card: 0 10px 30px -5px hsl(var(--charcoal-dark) / 0.8);
+    --shadow-intense: 0 20px 60px -10px hsl(var(--charcoal-dark) / 0.9);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    background: var(--gradient-primary);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat font-extrabold;
+  }
+}
+
+@layer components {
+  /* Button Variants */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-primary-hover text-primary-foreground 
+           px-8 py-4 rounded-xl font-montserrat font-bold text-lg
+           shadow-lg hover:shadow-glow transform hover:scale-105
+           transition-all duration-300 border border-primary/20;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary/10 text-secondary border-2 border-secondary
+           px-8 py-4 rounded-xl font-montserrat font-bold text-lg
+           hover:bg-secondary hover:text-secondary-foreground
+           transform hover:scale-105 transition-all duration-300;
+  }
+  
+  .btn-ghost {
+    @apply text-foreground border border-border px-6 py-3 rounded-lg
+           hover:bg-background-secondary hover:border-accent
+           transition-all duration-300 font-inter font-medium;
+  }
+
+  /* Card Components */
+  .card-feature {
+    @apply bg-gradient-to-br from-card to-background-secondary
+           border border-card-border rounded-2xl p-8
+           hover:shadow-card hover:border-accent/50
+           transform hover:scale-105 transition-all duration-500
+           backdrop-blur-sm;
+  }
+  
+  .card-pricing {
+    @apply bg-gradient-to-b from-card to-background-secondary
+           border-2 border-card-border rounded-3xl p-8 relative
+           hover:border-accent hover:shadow-accent
+           transform transition-all duration-300;
+  }
+
+  /* Text Styles */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--neon) / 0.5);
+  }
+
+  /* Layout Components */
+  .section-padding {
+    @apply py-20 px-6 lg:px-8;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Animation Classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px hsl(var(--neon) / 0.3); }
+  to { box-shadow: 0 0 30px hsl(var(--neon) / 0.6), 0 0 40px hsl(var(--teal) / 0.3); }
+}
